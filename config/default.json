@@ -1,3 +1,5 @@
 {
-  "DB": "mongodb+srv://Sac_portal846:Sac@709@summer-project.wjec7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  "DB": "mongodb+srv://Sac_portal846:Sac@709@summer-project.wjec7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+
+  "jwtSecret": "SacToken"
 }
