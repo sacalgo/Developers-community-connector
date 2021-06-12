@@ -1,5 +1,7 @@
 {
   "DB": "mongodb+srv://Sac_portal846:Sac@709@summer-project.wjec7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
 
-  "jwtSecret": "SacToken"
+  "jwtSecret": "SacToken",
+  "githubClientId": "2c1b1263a1b7ccfff041",
+  "githubSecret": "ca4fed1830834dac796a647a7d4c49aa006be3f2"
 }
