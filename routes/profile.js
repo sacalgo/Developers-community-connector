@@ -98,7 +98,7 @@ router.post(
         profile = await Profile.findOneAndUpdate(
           { user: req.user.id },
           { $set: profileFields },
-          { new: true, useFindAndModify: false }
+          { new: true }
         );
         return res.json(profile);
       }
@@ -144,6 +144,23 @@ router.get("/user/:user_id", async (req, res) => {
     if (err.kind == "ObjectId") {
       return res.status(400).json({ msg: "Profile not found" });
     }
+    res.status(500).send("Server Error");
+  }
+});
+
+//@route DELETE api/profile
+//@desc Delete Profile , user and posts
+//@ access Private
+router.delete("/", auth, async (req, res) => {
+  try {
+    //@ todo -remove users posts
+    //Remove profie
+    await Profile.findOneAndRemove({ user: req.user.id });
+    //Remove User
+    await User.findOneAndRemove({ _id: req.user.id });
+    res.json({ msg: "User deleted" });
+  } catch (err) {
+    console.error(err.message);
     res.status(500).send("Server Error");
   }
 });
