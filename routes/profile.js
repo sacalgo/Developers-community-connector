@@ -306,7 +306,18 @@ router.get("/github/:username", (req, res) => {
       if (response.statusCode !== 200) {
         return res.status(404).json({ msg: "No Github Profile found" });
       }
-      res.json(JSON.parse(body));
+      const repos = JSON.parse(body);
+      // console.log(typeof(repos));
+      // const repoName=repos[0].full_name;
+      const repoName=[];
+      repoName.push(repos[0].full_name);
+      repoName.push(repos[1].full_name);
+      repoName.push(repos[2].full_name);
+      repoName.push(repos[3].full_name);
+      repoName.push(repos[4].full_name);
+      // console.log(repoName);
+      // res.json(JSON.parse(body));
+      res.json(repoName);
     });
   } catch (err) {
     console.log(err.message);
