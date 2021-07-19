@@ -4,9 +4,9 @@
   "description": "This is placement portal as a part of summer project ",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-      "start":"node server",
-      "server":"nodemon server"
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client"
   },
   "author": "Sachin Toppa",
   "license": "MIT",
@@ -23,5 +23,6 @@
   "devDependencies": {
     "concurrently": "^6.2.0",
     "nodemon": "^2.0.7"
-  }
+  },
+  "proxy": "http://localhost:7000"
 }
