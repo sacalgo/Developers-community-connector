@@ -100,7 +100,7 @@ router.post(
         profile = await Profile.findOneAndUpdate(
           { user: req.user.id },
           { $set: profileFields },
-          { new: true }
+          { new: true },
         );
         return res.json(profile);
       }
@@ -309,7 +309,7 @@ router.get("/github/:username", (req, res) => {
       const repos = JSON.parse(body);
       // console.log(typeof(repos));
       // const repoName=repos[0].full_name;
-      const repoName=[];
+      const repoName = [];
       repoName.push(repos[0].full_name);
       repoName.push(repos[1].full_name);
       repoName.push(repos[2].full_name);

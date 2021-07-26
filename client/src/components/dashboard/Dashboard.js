@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
+import DashboardAction from "./DashboardAction";
 import { getCurrentProfile } from "../../actions/profile";
 
 const Dashboard = ({
@@ -25,7 +26,9 @@ const Dashboard = ({
         <i className="fas fa-user">Welcome {user && user.name}</i>
       </p>
       {profile !== null ? (
-        <Fragment>has</Fragment>
+        <Fragment>
+          <DashboardAction />
+        </Fragment>
       ) : (
         <Fragment>
           You have not yet set up profile, please add some info
