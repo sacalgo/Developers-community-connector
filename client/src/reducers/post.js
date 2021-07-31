@@ -1,6 +1,12 @@
 /* eslint-disable import/no-anonymous-default-export */
 /* eslint-disable no-unused-vars */
-import { DELETE_POST, GET_POSTS, POST_ERROR, UPDATE_LIKES } from "../actions/types";
+import {
+  ADD_POST,
+  DELETE_POST,
+  GET_POSTS,
+  POST_ERROR,
+  UPDATE_LIKES,
+} from "../actions/types";
 
 const initialState = {
   posts: [],
@@ -18,12 +24,18 @@ export default function (state = initialState, action) {
         posts: payload,
         loading: false,
       };
-      case DELETE_POST:
-        return {
-          ...state, 
-          posts:state.posts.filter(post=>post._id!==payload),
-          loading:false
-        }
+    case ADD_POST:
+      return {
+        ...state,
+        posts: [payload, ...state.posts],
+        loading: false,
+      };
+    case DELETE_POST:
+      return {
+        ...state,
+        posts: state.posts.filter((post) => post._id !== payload),
+        loading: false,
+      };
     case POST_ERROR:
       return {
         ...state,
@@ -36,8 +48,7 @@ export default function (state = initialState, action) {
         posts: state.posts.map((post) =>
           post._id === payload.postId ? { ...post, likes: payload.likes } : post
         ),
-        loading:false
-
+        loading: false,
       };
     default:
       return state;
