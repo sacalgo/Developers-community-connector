@@ -10,4 +10,3 @@ Installation and running commands:-
 6. npm start 
 
 
-Deployed Link:- https://devlopers-community-website.herokuapp.com/
