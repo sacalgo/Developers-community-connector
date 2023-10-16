@@ -9,4 +9,4 @@ Installation and running commands:-
 5. npm i 
 6. npm start 
 
- Deployed Link:- https://devlopers-community-website.herokuapp.com/
+ Deployed Link:- https://devlopers-coomunity.onrender.com/
