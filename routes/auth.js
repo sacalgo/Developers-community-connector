@@ -5,7 +5,6 @@ const auth = require("../middleware/auth");
 const User = require("../models/User");
 const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
-const config = require("config");
 const jwt = require("jsonwebtoken");
 
 //@route GET api/auth
@@ -62,7 +61,7 @@ router.post(
       //before deploy change to 360
       jwt.sign(
         payload,
-        config.get("jwtSecret"),
+        process.env.jwtSecret,
         { expiresIn: 360000 },
         (err, token) => {
           if (err) throw err;
